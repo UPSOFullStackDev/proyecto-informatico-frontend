@@ -1,0 +1,134 @@
+.main-container-login {
+  position: relative;
+  font-family: var(--alternative-font);
+  height: 100vh;
+  overflow: hidden; /* Para asegurarse de que el desenfoque no se desborde */
+}
+
+.main-container-login::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(python2.jpg) no-repeat center top;
+  background-size: cover;
+  filter: blur(10px) brightness(40%); /* Ajusta los valores según tus preferencias */
+  z-index: -1;
+}
+
+.login-box {
+  width: 320px;
+  height: 420px;
+  background: var(--color1-950);
+  color: var(--font-color1);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0.1rem 0.7rem var(--color2);
+}
+.login-box:hover{
+  box-shadow: 0 0 0.1rem var(--color2);
+  transition: all 0.4s ease;
+}
+
+.login-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.login-box h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: var(--base-size4);
+}
+
+.login-box h2 {
+  text-align: center;
+}
+
+.login-box label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"],
+.login-box input[type="email"] {
+  border: none;
+  border-bottom: 1px solid var(--font-color1);
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: var(--font-color1);
+  font-size: var(--base-size1);
+}
+
+.login-box input[type="button"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: var(--color1);
+  color: var(--font-color1);
+  font-size: var(--base-size2);
+  border-radius: 5px;
+  border: 1px solid var(--color2);
+  transition: all 0.4s ease;
+}
+.login-box input[type="button"]:hover {
+  cursor: pointer;
+  color: var(--color2);
+  box-shadow: 0 0.1rem 0.7rem var(--color2);
+  transform: scale(1.1);
+}
+
+.login-box a {
+  text-decoration: none;
+  font-size: var(--base-size0);
+  line-height: 20px;
+  color: var(--color2-500);
+  font-weight: bold;
+}
+
+.login-box a:hover {
+  color: var(--font-color1);
+}
+
+.login-box input[type="text"]:-webkit-autofill,
+.login-box input[type="password"]:-webkit-autofill,
+.login-box input[type="email"]:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+}
+
+/* Estilos adicionales para resaltar el fondo */
+.login-box input[type="text"]:-webkit-autofill::first-line,
+.login-box input[type="password"]:-webkit-autofill::first-line,
+.login-box input[type="email"]:-webkit-autofill::first-line {
+  background-color: transparent !important;
+}
+
+/* Estilos para resaltar el texto */
+.login-box input[type="text"]:-webkit-autofill::first-line::after,
+.login-box input[type="password"]:-webkit-autofill::first-line::after,
+.login-box input[type="email"]:-webkit-autofill::first-line::after {
+  color: var(--font-color1) !important;
+  background-color: transparent !important;
+}
+/* FIN ESTILOS DEL FORMULARIO LOGIN */

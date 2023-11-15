@@ -1,0 +1,182 @@
+/* Buttons */
+.tb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 98%;
+  height: 70px;
+}
+.myButton {
+  background: linear-gradient(to bottom, var(--color1) 95%, var(--color2) 100%);
+  background-color: var(--color1);
+  border-radius: 5px;
+  border: 1px solid var(--color2-500);
+  cursor: pointer;
+  color: var(--font-color1);
+  font-size: var(--base-size1);
+  padding: var(--base-size-xxxs);
+  text-decoration: none;
+  box-shadow: 0 0.1rem 0.7rem var(--color2);
+  transition: all 0.4s ease;
+}
+.myButton:hover {
+  color: var(--color2);
+  border-color: var(--color2);
+  box-shadow: 0 0rem 0.9rem var(--color2);
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+  box-shadow: 0 0.1rem 0.7rem var(--color2);
+}
+/* Table Styles */
+.table-container {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-size: var(--base-size4);
+  color: var(--font-color1);
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: calc(100vw - var(--aside-size));
+}
+
+.table-container table {
+  background-color: var(--color2-900);
+  width: 98%;
+
+  text-align: center;
+  transition: all 0.3s ease;
+  color: var(--font-color1);
+  box-shadow: 0 0.1rem 0.7rem var(--color2);
+}
+
+.table-container table:hover {
+  box-shadow: none;
+}
+.table-container table thead {
+  font-size: var(--base-size2);
+  border-radius: 50px;
+  background: var(--color1);
+  border-bottom: 1px solid var(--color2-900);
+}
+.table-container table thead tr th {
+  border-bottom: 1px solid var(--color2);
+}
+
+.table-container table tbody td {
+  height: 2.8rem;
+  border-bottom: 1px solid var(--color2-900);
+  color: var(--font-color1);
+  font-size: var(--base-size0);
+}
+
+.icon-edit {
+  color: var(--color3-500);
+}
+.icon-edit:hover {
+  color: var(--color3);
+}
+.icon-delete {
+  color: var(--color-danger-500);
+}
+.icon-delete:hover {
+  color: var(--color-danger);
+}
+
+/*Modal*/
+.modal-container{
+  border: 1px solid var(--color2);
+}
+.modal-header {
+  background-color: var(--color1);
+  border-bottom: 1px solid var(--color2);
+  color: var(--color2);
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0 0.1rem 0.7rem var(--color2);
+}
+.modal-title {
+  text-align: center;
+  font-size: var(--base-size4);
+  
+}
+.modal-body {
+  background-color: var(--color1);
+  font-size: var(--base-size2);
+  text-align: start;
+  box-shadow: 0 0.1rem 0.7rem var(--color2);
+}
+.modal-footer {
+  border-top: 1px solid var(--color2);
+  background-color: var(--color1);
+  box-shadow: 0 0.1rem 0.7rem var(--color2);
+}
+
+.modal-form {
+  display: flex;
+  font-size: var(--base-size0);
+  flex-direction: column;
+  color: var(--font-color1);
+}
+.modal-form div {
+  margin: 5px;
+}
+
+.modal-form label {
+  width: 150px; /* Ajusta el ancho del label según tus necesidades */
+  text-align: right;
+  padding-right: 10px;
+}
+
+.modal-form input,
+.modal-form input[type="text"],
+.modal-form input[type="number"] {
+  border: none;
+  border-bottom: 1px solid var(--font-color1);
+  background: transparent;
+  outline: none;
+  height: 40px;
+  width: 300px;
+  color: var(--font-color1);
+  font-size: var(--base-size1);
+}
+
+.modal-form input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: var(--color2-500);
+  color: var(--font-color1);
+  font-size: var(--base-size2);
+  border-radius: 20px;
+}
+.modal-form input[type="submit"]:hover {
+  cursor: pointer;
+  background: var(--color3-700);
+  color: var(--font-color2);
+}
+/* Media Querys */
+
+@media screen and (max-width: 992px) {
+  .table-container {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .myButton {
+    font-size: var(--base-size);
+  }
+
+  .table-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-left: 4px;
+  }
+  .table-container table{
+    margin-left:3px;
+  }
+}
