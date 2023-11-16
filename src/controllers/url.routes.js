@@ -1,9 +1,9 @@
-const url = "https://proyecto-informatico-backend.onrender.com//user/";
+const url = "https://proyecto-informatico-backend.onrender.com/user/";
 const user_id = localStorage.getItem("id");
-const getBillsUrl = `https://proyecto-informatico-backend.onrender.com//user/${user_id}/sales`;
-const getClientsUrl = `https://proyecto-informatico-backend.onrender.com//user/${user_id}/clients`;
-const getProductsUrl = `https://proyecto-informatico-backend.onrender.com//user/${user_id}/products`;
-const getServicesUrl = `https://proyecto-informatico-backend.onrender.com//user/${user_id}/services`;
+const getBillsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/sales`;
+const getClientsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/clients`;
+const getProductsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/products`;
+const getServicesUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/services`;
 
 // const oneClientUrl = `http://127.0.0.1:5000/user/${user_id}/clients/${clientId}`
 // const oneProductUrl = `http://127.0.0.1:5000/user/${user_id}/products/${productId}`

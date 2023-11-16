@@ -1,7 +1,7 @@
 import { fetchData, getRequestOptions } from "./utils.js";
 
 export const fetchClients = async (user_id) => {
-  const clientsUrl = `https://proyecto-informatico-backend.onrender.com//user/${user_id}/clients`;
+  const clientsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/clients`;
   const requestOptions = getRequestOptions();
   try {
     return await fetchData(clientsUrl, requestOptions);
@@ -12,7 +12,7 @@ export const fetchClients = async (user_id) => {
 };
 
 export const fetchServices = async (user_id) => {
-  const servicesUrl = `https://proyecto-informatico-backend.onrender.com//user/${user_id}/services`;
+  const servicesUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/services`;
   const requestOptions = getRequestOptions();
   try {
     return await fetchData(servicesUrl, requestOptions);
@@ -23,7 +23,7 @@ export const fetchServices = async (user_id) => {
 };
 
 export const fetchProducts = async (user_id) => {
-  const productsUrl = `https://proyecto-informatico-backend.onrender.com//user/${user_id}/products`;
+  const productsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/products`;
   const requestOptions = getRequestOptions();
   try {
     return await fetchData(productsUrl, requestOptions);
@@ -188,7 +188,7 @@ export const addBill = (selectedClient, billItems, totalBill) => {
   };
   console.log(billData);
 
-  fetch(`https://proyecto-informatico-backend.onrender.com//user/${user_id}/sales`, addBillRequestOptions)
+  fetch(`https://proyecto-informatico-backend.onrender.com/user/${user_id}/sales`, addBillRequestOptions)
     .then((response) => {
       if (response.status === 200) {
         alert("Factura generada con éxito.");
