@@ -1,4 +1,4 @@
-const url = "https://proyecto-informatico-backend.vercel.app/user/";
+const url = "https://100.20.92.101:5000/user/";
 const user_id = localStorage.getItem("id");
 const getBillsUrl = url + `${user_id}/sales`;
 const getClientsUrl = url + `${user_id}/clients`;
@@ -10,6 +10,11 @@ const getServicesUrl = url + `${user_id}/services`;
 // const oneServiceUrl = `http://127.0.0.1:5000/user/${user_id}/products/${serviceId}`
 // const oneBillUrl = `http://127.0.0.1:5000/user/${user_id}/sales/${billId}`;
 
-const loginUrl = `https://proyecto-informatico-backend.vercel.app/user/login`
+const loginUrl = `https://100.20.92.101:5000/user/login`
 
 export default { getBillsUrl, getClientsUrl, getProductsUrl, getServicesUrl, loginUrl };
+
+// render adresses
+// 100.20.92.101
+// 44.225.181.72
+// 44.227.217.144
