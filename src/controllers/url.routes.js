@@ -10,6 +10,6 @@ const getServicesUrl = url + `${user_id}/services`;
 // const oneServiceUrl = `http://127.0.0.1:5000/user/${user_id}/products/${serviceId}`
 // const oneBillUrl = `http://127.0.0.1:5000/user/${user_id}/sales/${billId}`;
 
-const loginUrl = url + `login`
+const loginUrl = `https://proyecto-informatico-backend.vercel.app/user/login`
 
 export default { getBillsUrl, getClientsUrl, getProductsUrl, getServicesUrl, loginUrl };
