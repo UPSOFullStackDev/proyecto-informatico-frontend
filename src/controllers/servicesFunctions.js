@@ -3,7 +3,7 @@ import { getRequestOptions, fetchData } from "./utils.js";
 const token = localStorage.getItem("token");
 
 const fetchServices = async (user_id) => {
-  const servicesUrl = `http://127.0.0.1:5000/user/${user_id}/services`;
+  const servicesUrl = `100.20.92.101:5000/user/${user_id}/services`;
   const requestOptions = getRequestOptions();
   try {
     return await fetchData(servicesUrl, requestOptions);
@@ -15,8 +15,8 @@ const fetchServices = async (user_id) => {
 
 const saveService = async (user_id, service) => {
   const url = service.id
-    ? `http://127.0.0.1:5000/user/${user_id}/services/${service.id}`
-    : `http://127.0.0.1:5000/user/${user_id}/services`;
+    ? `100.20.92.101:5000/user/${user_id}/services/${service.id}`
+    : `100.20.92.101:5000/user/${user_id}/services`;
   const method = service.id ? "PUT" : "POST";
 
   const requestOptions = {
@@ -52,7 +52,7 @@ const saveService = async (user_id, service) => {
 };
 
 const deleteService = async (user_id, productId) => {
-  const url = `http://127.0.0.1:5000/user/${user_id}/services/${productId}`;
+  const url = `100.20.92.101:5000/user/${user_id}/services/${productId}`;
 
   const requestOptions = {
     method: "DELETE",
