@@ -1,7 +1,7 @@
 import { fetchData, getRequestOptions } from "./utils.js";
 
 const user_id = localStorage.getItem("id");
-const billsUrl = `http://100.20.92.101:5000/user/${user_id}/sales`;
+const billsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/sales`;
 
 const requestOptions = getRequestOptions();
 
