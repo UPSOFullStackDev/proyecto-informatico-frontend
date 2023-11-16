@@ -3,7 +3,7 @@ import { getRequestOptions, fetchData } from "./utils.js";
 const token = localStorage.getItem("token");
 
 export const fetchClients = async (user_id) => {
-  const clientsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/clients`;
+  const clientsUrl = `http://10.220.161.230:5000/user/${user_id}/clients`;
   const requestOptions = getRequestOptions();
   try {
     return await fetchData(clientsUrl, requestOptions);
@@ -15,8 +15,8 @@ export const fetchClients = async (user_id) => {
 
 export const saveClient = async (user_id, client) => {
   const url = client.id
-    ? `https://proyecto-informatico-backend.onrender.com/user/${user_id}/clients/${client.id}`
-    : `https://proyecto-informatico-backend.onrender.com/user/${user_id}/clients`;
+    ? `http://10.220.161.230:5000/user/${user_id}/clients/${client.id}`
+    : `http://10.220.161.230:5000/user/${user_id}/clients`;
   const method = client.id ? "PUT" : "POST";
 
   const requestOptions = {
@@ -52,7 +52,7 @@ export const saveClient = async (user_id, client) => {
 };
 
 export const deleteClient = async (user_id, clientId) => {
-  const url = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/clients/${clientId}`;
+  const url = `http://10.220.161.230:5000/user/${user_id}/clients/${clientId}`;
 
   const requestOptions = {
     method: "DELETE",

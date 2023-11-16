@@ -6,7 +6,7 @@ function login(username, password){
     const requestOptions = getRequestOptions();
 
     return axios
-      .post("https://proyecto-informatico-backend.onrender.com/user/login", requestOptions, {
+      .post("http://10.220.161.230:5000/user/login", requestOptions, {
         headers: {
           "Content-Type": "application/json",
           Authorization: authString,
