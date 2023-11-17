@@ -7,10 +7,10 @@ function login(username, password){
     const url = "https://proyecto-informatico-backend.onrender.com/user/login"; 
 
     return axios
-      .post(url, requestOptions, {
+      .post(url, {}, {
         headers: {
           "Content-Type": "application/json",
-          token: authString,
+          Authorization: authString,
         },
       })
       .then((resp) => {
