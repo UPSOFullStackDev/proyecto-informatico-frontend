@@ -10,7 +10,7 @@ function login(username, password){
       .post(url, requestOptions, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: authString,
+          token: authString,
         },
       })
       .then((resp) => {
