@@ -152,7 +152,7 @@ function Products() {
           <BsPlusLg /> Agregar Producto
         </button>
       </div>
-      {/* <table>
+      <table>
         <thead>
           <tr>
             <th>Producto</th>
@@ -182,7 +182,7 @@ function Products() {
             </tr>
           ))}
         </tbody>
-      </table> */}
+      </table>
       <Modal
         show={showModal}
         onHide={closeAndResetModal}
