@@ -4,9 +4,10 @@ import { getRequestOptions } from "./utils";
 function login(username, password){
     const authString = "Basic " + btoa(username + ":" + password);
     const requestOptions = getRequestOptions();
+    const url = "https://proyecto-informatico-backend.onrender.com/user/login"; 
 
     return axios
-      .post("https://proyecto-informatico-backend.onrender.com/user/login", requestOptions, {
+      .post(url, requestOptions, {
         headers: {
           "Content-Type": "application/json",
           Authorization: authString,
