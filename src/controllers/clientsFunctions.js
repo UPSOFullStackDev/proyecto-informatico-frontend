@@ -4,7 +4,18 @@ const token = localStorage.getItem("token");
 
 export const fetchClients = async (user_id) => {
   const clientsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/clients`;
-  const requestOptions = getRequestOptions();
+  // const requestOptions = getRequestOptions();
+  const id = localStorage.getItem("id");
+  const token = localStorage.getItem("token");
+
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      token: token,
+      "user-id": id,
+    },
+  };
   try {
     return await fetchData(clientsUrl, requestOptions);
   } catch (error) {
