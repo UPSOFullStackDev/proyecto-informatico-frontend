@@ -9,7 +9,7 @@ function getRequestOptions() {
     headers: {
       "Content-Type": "application/json",
       "token": "token",
-      "user-id": id,
+      "user-id": "id",
     },
   };
   return requestOptions;
