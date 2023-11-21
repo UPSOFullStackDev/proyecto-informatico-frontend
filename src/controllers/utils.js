@@ -8,8 +8,8 @@ function getRequestOptions() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "token": "token",
-      "user-id": "id",
+      "token": token,
+      "user-id": id,
     },
   };
   return requestOptions;
