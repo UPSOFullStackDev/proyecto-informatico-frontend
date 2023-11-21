@@ -8,8 +8,8 @@ function getRequestOptions() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "token": token,
-      "user-id": id,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImV4cCI6MTcwMDU5NzUxNH0.QOYcf6EAfHVp_AQRgLfVACqOp6keObDcSW8-cgQqZ4g",
+      "user-id": "21",
     },
   };
   return requestOptions;
