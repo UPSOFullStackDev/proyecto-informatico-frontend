@@ -18,11 +18,18 @@ function login(username, password){
           localStorage.setItem("token", resp.data.token);
           localStorage.setItem("username", resp.data.username);
           localStorage.setItem("id", resp.data.id);
-          console.log("Inicio de sesión exitoso", resp.data.token);
+          
+          var id = resp.data.id;
+          var token = resp.data.token;
+
           window.location.href = "/Home";
+
         } else {
           console.log("Inicio de sesión fallido");
         }
+      })
+      .then(() => {
+        console.log(resp.data);
       })
       .catch((error) => {
         console.error("Error en la solicitud:", error);
