@@ -8,7 +8,7 @@ function getRequestOptions() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      token: token,
+      "token": "token",
       "user-id": id,
     },
   };
