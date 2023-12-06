@@ -1,6 +1,7 @@
 import axios from "axios";
 import { toast } from "sonner"
 import { loginUrl } from "./url.routes";
+import { setLocalStorage } from "./localStorage.js";
 
 /**
  * Función para realizar la autenticación de un usuario mediante un servicio de inicio de sesión.
@@ -20,9 +21,9 @@ function login(username, password){
       })
       .then((resp) => {
         if (resp.data.token) {
-          localStorage.setItem("token", resp.data.token);
-          localStorage.setItem("username", resp.data.username);
-          localStorage.setItem("id", resp.data.id);
+          setLocalStorage("token", resp.data.token);
+          setLocalStorage("username", resp.data.username);
+          setLocalStorage("id", resp.data.id);
           window.location.href = "/Home";
         } else {
           toast.error("Inicio de sesión fallido")

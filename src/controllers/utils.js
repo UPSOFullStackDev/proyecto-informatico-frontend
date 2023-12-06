@@ -1,4 +1,4 @@
-import { user_id, token } from "./localStorage";
+import { user_id, token } from "./localStorage.js";
 /**
  * Función que devuelve las opciones de configuración para una solicitud HTTP de tipo GET.
  * Las opciones incluyen el método "GET" y encabezados necesarios para la autenticación, como

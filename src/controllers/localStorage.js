@@ -3,10 +3,24 @@
  * Estas variables incluyen el identificador único del usuario (`user_id`), el token de autenticación (`token`),
  * y el nombre de usuario (`user_name`), que se obtienen del almacenamiento local.
  * @module localStorage
-*/
+ */
 
-const user_id = localStorage.getItem("id");
-const token = localStorage.getItem("token");
-const user_name = localStorage.getItem("username");
+const getId = () => {
+  return JSON.parse(localStorage.getItem("id"));
+};
+const getToken = () => {
+  return JSON.parse(localStorage.getItem("token"));
+};
 
-export {user_id, token, user_name}
+const setLocalStorage = (key, data) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
+
+const getLocalStorage = (key) => {
+  return JSON.parse(localStorage.getItem(key));
+};
+
+const user_id = getId();
+const token = getToken();
+
+export { user_id, token, setLocalStorage, getLocalStorage };
