@@ -7,11 +7,11 @@ import {user_id} from './localStorage.js';
  * @module url.routes.js
 */
 
-const billsUrl = `http://127.0.0.1:5000/user/${user_id}/sales`;
-const clientsUrl = `http://127.0.0.1:5000/user/${user_id}/clients`;
-const productsUrl = `http://127.0.0.1:5000/user/${user_id}/products`;
-const servicesUrl = `http://127.0.0.1:5000/user/${user_id}/services`;
+const billsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/sales`;
+const clientsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/clients`;
+const productsUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/products`;
+const servicesUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/services`;
 
-const loginUrl = `http://127.0.0.1:5000/user/login`
+const loginUrl = `https://proyecto-informatico-backend.onrender.com/user/login`
 
 export { billsUrl, clientsUrl, productsUrl, servicesUrl, loginUrl };
