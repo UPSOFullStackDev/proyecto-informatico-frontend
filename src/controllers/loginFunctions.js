@@ -1,13 +1,18 @@
 import axios from "axios";
-import { getRequestOptions } from "./utils";
+import { toast } from "sonner"
+import { loginUrl } from "./url.routes";
 
+/**
+ * Función para realizar la autenticación de un usuario mediante un servicio de inicio de sesión.
+ * @function login
+ * @param {string} username - Nombre de usuario para la autenticación.
+ * @param {string} password - Contraseña para la autenticación.
+ * @returns {Promise} Una promesa que se resuelve con la respuesta del servicio de inicio de sesión.
+ */
 function login(username, password){
     const authString = "Basic " + btoa(username + ":" + password);
-    const requestOptions = getRequestOptions();
-    const url = "https://proyecto-informatico-backend.onrender.com/user/login"; 
-
     return axios
-      .post(url, {}, {
+      .post(loginUrl, {}, {
         headers: {
           "Content-Type": "application/json",
           Authorization: authString,
@@ -18,22 +23,44 @@ function login(username, password){
           localStorage.setItem("token", resp.data.token);
           localStorage.setItem("username", resp.data.username);
           localStorage.setItem("id", resp.data.id);
-          
-          var id = resp.data.id;
-          var token = resp.data.token;
-
           window.location.href = "/Home";
-
         } else {
+          toast.error("Inicio de sesión fallido")
           console.log("Inicio de sesión fallido");
         }
       })
-      .then(() => {
-        console.log(resp.data);
-      })
       .catch((error) => {
+        toast.error("Usuario o contraseña incorrectos")
         console.error("Error en la solicitud:", error);
-      });
+      })
 }
 
-export default login;
+function registerUser(name, username, email, password) {
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: name,
+      username: username,
+      password: password,
+      email: email,
+    }),
+  };
+  toast.loading("Registrando usuario")
+  fetch("http://127.0.0.1:5000/user/register", requestOptions)
+    .then((res) => res.json())
+    .then((resp) => {
+      console.log(resp);
+
+      if (resp.username) {
+        toast.success("Usuario registrado exitosamente")
+      } else {
+        toast.error("Error al registrar usuario registro")
+      }
+    })
+    .catch((error) => {
+      console.error("Error en la solicitud:", error);
+    });
+}
+
+export { login, registerUser };

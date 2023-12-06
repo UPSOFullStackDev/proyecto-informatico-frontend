@@ -1,14 +1,23 @@
-import React, { useState, useEffect } from "react";
-import login from "../controllers/loginFunctions"
-import "../css/login.css";
+import React, { useState } from "react";
+import {login, registerUser} from "../controllers/loginFunctions";
 import logo from "/logo_python2.png";
+import { Toaster, toast } from "sonner";
+import RegisterModal from "../components/RegisterModal";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   const handleLogin = () => {
-    login(username, password);
+    toast.promise(login(username, password), { loading: "Iniciando sesión" });
+  };
+  const openRegisterModal = () => {
+    setShowRegisterModal(true);
+  };
+  const handleRegister = (name, username, email, password) => {
+
+    registerUser(name, username, email, password);
   };
 
   return (
@@ -39,9 +48,17 @@ function Login() {
           <input type="button" onClick={handleLogin} value="Iniciar Sesión" />
           <a href="#">Olvido su contraseña?</a>
           <br />
-          <a href="/Register">Registrarse</a>
+          <a href="#" onClick={openRegisterModal}>
+            Registrarse
+          </a>
         </form>
+        <RegisterModal
+          showModal={showRegisterModal}
+          closeModal={() => setShowRegisterModal(false)}
+          onRegister={handleRegister}
+        />
       </div>
+      <Toaster position="top-right" duration={900} theme="dark" richColors />
     </div>
   );
 }

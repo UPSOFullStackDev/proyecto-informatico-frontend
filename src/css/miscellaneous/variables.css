@@ -1,6 +1,8 @@
 :root {
     /* Paleta de colores */
     --color1: rgb(3, 22, 24);
+    --color1-trans: rgb(3, 22, 24, 0.7);
+    --shadow: rgba(0, 0, 0, 0.5);
     --color1-500: rgb(3, 22, 24, 0.5);
     --color1-700: rgb(3, 22, 24, 0.8);
     --color1-950: rgb(3, 22, 24, 0.95);

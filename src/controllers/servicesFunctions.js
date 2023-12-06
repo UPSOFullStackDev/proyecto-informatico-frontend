@@ -1,29 +1,57 @@
-import { getRequestOptions, fetchData } from "./utils.js";
+import { getRequestOptions, deleteRequestOptions, fetchData } from "./utils.js";
+import { token, user_id } from "./localStorage";
+import { servicesUrl, billsUrl } from "./url.routes.js";
 
-const token = localStorage.getItem("token");
-
-const fetchServices = async (user_id) => {
-  const servicesUrl = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/services`;
-  const requestOptions = getRequestOptions();
+/**
+ * Función asincrónica para obtener la lista de servicios.
+ * @async
+ * @function fetchServices
+ * @throws {Error} Si hay un error al cargar la lista de servicios.
+ * @returns {Promise<Array>} Lista de servicios.
+ */
+const fetchServices = async () => {
   try {
-    return await fetchData(servicesUrl, requestOptions);
+    return await fetchData(servicesUrl, getRequestOptions());
   } catch (error) {
     console.error("Error al cargar la lista de servicios:", error);
-    throw error;
+    return [];
   }
 };
 
-const saveService = async (user_id, service) => {
-  const url = service.id
-    ? `https://proyecto-informatico-backend.onrender.com/user/${user_id}/services/${service.id}`
-    : `https://proyecto-informatico-backend.onrender.com/user/${user_id}/services`;
+/**
+ * Función asincrónica para obtener el ranking de servicios.
+ * @async
+ * @function fetchServicesRank
+ * @throws {Error} Si hay un error al cargar el ranking de servicios.
+ * @returns {Promise<Array>} Ranking de servicios.
+ */
+const fetchServicesRank = async () => {
+  const servicesRankUrl = `${billsUrl}/services`;
+  try {
+    return await fetchData(servicesRankUrl, getRequestOptions());
+  } catch (error) {
+    console.error("Error al cargar la lista de ranking de servicios:", error);
+    return [];
+  }
+};
+
+/**
+ * Función asincrónica para guardar un servicio en el servidor.
+ * @async
+ * @function saveService
+ * @param {Object} service - Información del servicio a guardar.
+ * @throws {Error} Si hay un error al guardar el servicio.
+ * @returns {Promise<Object>} Objeto con la información del servicio guardado y la lista actualizada de servicios.
+ */
+const saveService = async (service) => {
+  const url = service.id ? `${servicesUrl}/${service.id}` : servicesUrl;
   const method = service.id ? "PUT" : "POST";
 
   const requestOptions = {
     method,
     headers: {
       "Content-Type": "application/json",
-      token,
+      token: token,
       "user-id": user_id,
     },
     body: JSON.stringify(service),
@@ -51,20 +79,19 @@ const saveService = async (user_id, service) => {
   }
 };
 
-const deleteService = async (user_id, productId) => {
-  const url = `https://proyecto-informatico-backend.onrender.com/user/${user_id}/services/${productId}`;
-
-  const requestOptions = {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      token,
-      "user-id": user_id,
-    },
-  };
+/**
+ * Función asincrónica para eliminar un servicio del servidor.
+ * @async
+ * @function deleteService
+ * @param {number} serviceId - ID del servicio a eliminar.
+ * @throws {Error} Si hay un error al eliminar el servicio.
+ * @returns {Promise<boolean>} `true` si el servicio se eliminó correctamente.
+ */
+const deleteService = async (serviceId) => {
+  const url = `${servicesUrl}/${serviceId}`;
 
   try {
-    const response = await fetch(url, requestOptions);
+    const response = await fetch(url, deleteRequestOptions());
 
     if (response.status === 200) {
       const updatedServices = await fetchServices(user_id); // Reutilizar la función existente
@@ -82,4 +109,5 @@ const deleteService = async (user_id, productId) => {
 export {
   fetchServices,
   saveService,
-  deleteService}
+  deleteService,
+  fetchServicesRank,}
